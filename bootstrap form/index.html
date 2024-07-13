@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Optional: Custom styles */
+    .container {
+      max-width: 500px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  
+<div class="container">
+  <h2>Contact Information</h2>
+  <form id="contactForm" novalidate>
+    <!-- Full Name -->
+    <div class="form-group" id="form-group">
+      <label for="fullName">Full Name</label>
+      <input type="text" class="form-control" id="fullName" name="fullName" pattern="[A-Za-z\s]+" required>
+      <div class="invalid-feedback"  id="invalid-feedback">
+        Please Enter Valid Name.
+      </div>
+    </div>
+    
+    <!-- Company Name -->
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input type="text" class="form-control" id="companyName" name="companyName" required>
+      <div class="invalid-feedback">
+        Please Enter Company Name.
+      </div>
+    </div>
+    
+    <!-- Email Address -->
+    <div class="form-group">
+      <label for="emailAddress">Email Address</label>
+      <input type="email" class="form-control" id="emailAddress" name="emailAddress" required>
+      <div class="invalid-feedback">
+        Please Enter a Valid Email Address.
+      </div>
+    </div>
+    
+    <!-- Phone Number -->
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+      <div class="invalid-feedback">
+        Please Enter a Valid 10-Digit Phone Number 
+      </div>
+    </div>
+    
+    <!-- City -->
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" name="city" required>
+      <div class="invalid-feedback">
+        Please Enter Your City.
+      </div>
+    </div>
+    
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<!-- Custom JavaScript for form validation -->
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      var form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    }, false);
+  })();
+let fullName = document.getElementById("fullName")
+let invalid_feedback = document.getElementById("invalid-feedback")
+let valid_name=document.getElementById("form-group")
+valid_name.addEventListener("change",()=>{
+  if(fullName=''){
+invalid_feedback.innerText="Please Enter Your  Name."
+  }
+})
+</script>
+
+</body>
+</html>
